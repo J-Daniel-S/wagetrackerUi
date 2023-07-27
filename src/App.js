@@ -14,12 +14,13 @@ function WageApp() {
   const [signup, setSignup] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
   const [userId, setUserId] = useState({});
-  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
-  const [authTokens, setAuthTokens] = useState(existingTokens);
+  // const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+  const [authTokens, setAuthTokens] = useState("existingTokens");
 
   const setTokens = (data) => {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
+    console.log(localStorage.getItem("tokens"));
   }
 
   let content = <Loading />;

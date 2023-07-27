@@ -29,7 +29,7 @@ const Jobs = (props) => {
 	const deleteJob = () => {
 		let name = job.name;
 		fetch(
-			"http://localhost:8080/wagetracker/" + userState.id + "/" + name,
+			"http://localhost:8080/wagetrak/" + userState.id + "/" + name,
 			{
 				method: 'DELETE',
 				headers: {

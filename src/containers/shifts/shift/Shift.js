@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import EditShift from '../../../modals/editShift/EditShift';
 import UserContext from '../../../context/userContext';
@@ -19,6 +19,10 @@ const Shift = (props) => {
 			setModal(true);
 		}
 	}
+
+	useEffect(() => {
+
+	}, [userState])
 
 	return (
 		<ShiftArticle>

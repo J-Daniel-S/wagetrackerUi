@@ -23,12 +23,12 @@ const AddPeriod = (props) => {
 
 	const postPeriod = (dateName) => {
 		fetch(
-			"http://localhost:8080/wagetracker/" + userState.id + "/" + jobState.name,
+			"http://localhost:8080/wagetrak/" + userState.id + "/" + jobState.name,
 			{
 				method: 'POST',
 				headers: {
 					'Content-type': 'application/json',
-					'Access-Control-Allow-Origin': 'localhost:3000/',
+					'Access-Control-Allow-Origin': 'http://localhost:3000',
 					'Access-Control-Allow-Methods': 'POST',
 					Accept: 'application/json, text/plain, */*',
 					authorization: authTokens

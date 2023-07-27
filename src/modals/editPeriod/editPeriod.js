@@ -26,13 +26,13 @@ const EditPeriod = (props) => {
 
 	const deletePeriod = () => {
 		fetch(
-			"http://localhost:8080/wagetracker/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
+			"http://localhost:8080/wagetrak/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
 			{
 				method: 'DELETE',
 				headers: {
 					'Content-type': 'application/json',
-					'Access-Control-Allow-Origin': 'localhost:3000/',
-					'Access-Control-Allow-Methods': 'DELETE',
+					// 'Access-Control-Allow-Origin': 'localhost:3000/',
+					// 'Access-Control-Allow-Methods': 'DELETE',
 					Accept: 'application/json, text/plain, */*',
 					authorization: authTokens
 				}
@@ -71,7 +71,7 @@ const EditPeriod = (props) => {
 			dateName = "0" + date2 + "-" + date1;
 
 			fetch(
-				"http://localhost:8080/wagetracker/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
+				"http://localhost:8080/wagetrak/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
 				{
 					method: 'PUT',
 					headers: {

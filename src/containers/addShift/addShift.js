@@ -45,11 +45,11 @@ const AddShift = (props) => {
 		const overWorked = Number.parseFloat(ot).toFixed(1);
 
 		fetch(
-			"http://localhost:8080/wagetracker/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
+			"http://localhost:8080/wagetrak/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
 			{
 				method: 'POST',
 				headers: {
-					// 'Content-type': 'application/json',
+					'Content-type': 'application/json',
 					// 'Access-Control-Allow-Origin': 'http://localhost:3000/',
 					// 'Access-Control-Allow-Methods': 'POST',
 					Accept: 'application/json, text/plain, */*',

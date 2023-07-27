@@ -38,7 +38,7 @@ const AddJob = (props) => {
 
 	const jobAddedHandler = (name, hourly) => {
 		fetch(
-			"http://localhost:8080/wagetracker/" + userState.id,
+			"http://localhost:8080/wagetrak/" + userState.id,
 			{
 				method: 'POST',
 				headers: {

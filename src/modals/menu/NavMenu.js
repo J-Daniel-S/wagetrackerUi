@@ -27,7 +27,7 @@ const NavMenu = (props) => {
 		rate = Number.parseInt(rate) / 100;
 
 		fetch(
-			"http://localhost:8080/wagetracker/users",
+			"http://localhost:8080/wagetrak/users",
 			{
 				method: 'PUT',
 				headers: {
@@ -42,6 +42,7 @@ const NavMenu = (props) => {
 				})
 			}
 		).then(res => res.json()).then(res => {
+			console.log(res);
 			updateUser(res);
 			props.toggleMenu();
 		}).catch(e => {
@@ -62,7 +63,7 @@ const NavMenu = (props) => {
 
 	const deleteUser = () => {
 		fetch(
-			"http://localhost:8080/wagetracker/users/" + userState.id,
+			"http://localhost:8080/wagetrak/users/" + userState.id,
 			{
 				method: 'DELETE',
 				headers: {

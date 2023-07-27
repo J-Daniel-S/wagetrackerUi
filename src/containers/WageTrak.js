@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { withRouter, Route, Redirect } from 'react-router-dom';
 
 import User from './user/User';
@@ -39,13 +39,9 @@ const Wagetracker = (props) => {
 
 	const toggleArr = [ setLogout, setNavMenu, setReport ];
 
-	useEffect(() => {
-		getUser();
-	}, []);
-
-	const getUser = () => {
+	const getUser = useCallback( () => {
 		fetch(
-			"http://localhost:8080/wagetracker/users/" + props.userId,
+			"http://localhost:8080/wagetrak/users/" + props.userId,
 			{
 				method: 'GET',
 				headers: {
@@ -55,6 +51,7 @@ const Wagetracker = (props) => {
 			}
 		).then(res => res.json())
 			.then(res => {
+				console.log(res);
 				setUserState(res);
 				//this exists simply to force a re-render when jobs is changed
 				setJobsState(res.jobs);
@@ -64,8 +61,12 @@ const Wagetracker = (props) => {
 				setAuthTokens("");
 				window.location.reload();
 			});
-		setUserState(userState);
-	}
+		// setUserState(userState);
+	}, [authTokens, setUserState, setJobsState, props.userId, setAuthTokens])
+
+	useEffect(() => {
+		getUser();
+	}, [getUser]);
 
 	const toggleLogout = () => {
 		if (window.location.pathname !== "/wagetracker") {

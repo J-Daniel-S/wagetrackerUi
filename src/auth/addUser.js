@@ -32,13 +32,13 @@ const AddUser = (props) => {
 		const taxRate = form.formBasicTax.value;
 		const password = form.formBasicPassword.value;
 		const confirm = form.formBasicConfirm.value;
-		const token = 'Basic ' + window.btoa(userName.toLowerCase() + ":" + taxRate + ":" + password);
+		const token = 'Basic ' + userName.toLowerCase() + ":" + taxRate + ":" + password;
 
 		if (password !== confirm) {
 			alert("Password and confirm password are not equal");
 		} else {
 			fetch(
-				"http://localhost:8080/wagetracker-login/register",
+				"http://localhost:8080/wagetrak-login/register",
 				{
 					method: 'POST',
 					headers: {
@@ -48,7 +48,7 @@ const AddUser = (props) => {
 					body: {}
 				}
 			).then(res => {
-				if (res.status === 401) {
+				if (res.status === 409) {
 					alert("User with that username already exists");
 				} else {
 					res.json().then(res => {

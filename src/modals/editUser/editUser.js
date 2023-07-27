@@ -29,7 +29,7 @@ const EditUser = (props) => {
 			alert("Name cannot be blank!");
 		} else {
 			fetch(
-				"http://localhost:8080/wagetracker/users",
+				"http://localhost:8080/wagetrak/users",
 				{
 					method: 'PUT',
 					headers: {

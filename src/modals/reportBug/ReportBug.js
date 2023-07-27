@@ -30,7 +30,7 @@ const ReportBug = (props) => {
 		} else {
 
 			fetch(
-				"http://localhost:8080/wagetracker/bugs",
+				"http://localhost:8080/wagetrak-bugs",
 				{
 					method: 'POST',
 					headers: {
@@ -45,7 +45,7 @@ const ReportBug = (props) => {
 				}
 			).then(res => {
 				if (res.status === 200) {
-					setTimeout(() => props.toggleReport(), 800);
+					setTimeout(() => props.toggleReport(), 400);
 					setTimeout(() => alert("Report submitted"), 900);
 				} else {
 					alert("Error submitting bug report");
