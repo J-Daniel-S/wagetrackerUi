@@ -75,7 +75,7 @@ const AddJob = (props) => {
 				<main>
 					<form id="addJobForm" name="addJobForm" onSubmit={() => jobAdded()}>
 						<FormLabel htmlFor="name">Job name</FormLabel>
-						<FormInput className="form-control" type="text" id="name" name="name" placeholder="Enter job title" />
+						<FormInput className="form-control" type="text" id="name" name="name" placeholder="Enter job title" autofocus="autofocus" />
 						<FormLabel htmlFor="hourly">Hourly rate</FormLabel>
 						<FormInput className="form-control" type="number" id="hourly" name="hourly" placeholder="$##.##" />
 						<Hr></Hr>

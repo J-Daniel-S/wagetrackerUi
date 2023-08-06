@@ -42,7 +42,10 @@ const AddShift = (props) => {
 
 	const postShift = (date, hours, ot) => {
 		const hoursWorked = Number.parseFloat(hours).toFixed(1);
-		const overWorked = Number.parseFloat(ot).toFixed(1);
+		let overWorked = 0;
+		if (ot && ot !== 0) {
+			overWorked = Number.parseFloat(ot).toFixed(1);
+		}
 
 		fetch(
 			"http://localhost:8080/wagetrak/" + userState.id + "/" + jobState.name + "/" + props.currentPeriod.dateName,
@@ -86,7 +89,7 @@ const AddShift = (props) => {
 							<FormLabel htmlFor="name">Enter shift date</FormLabel>
 							<FormInput type="date" id="name" name="name" defaultValue={props.currentPeriod.dateName.slice(0, 5)} className="form-control" required></FormInput>
 							<FormLabel htmlFor="hours">Hours worked:</FormLabel>
-							<FormInput type="number" id="hours" name="hours" defaultValue="0.0" className="form-control" required></FormInput>
+							<FormInput type="number" id="hours" name="hours" placeholder="0.0" className="form-control" required></FormInput>
 							<FormLabel htmlFor="overtime">Overtime hours worked:</FormLabel>
 							<FormInput type="number" id="ot" name="ot" defaultValue="0.0" className="form-control"></FormInput>
 							<p>Do not subtract overtime from hours worked</p>

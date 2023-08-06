@@ -76,7 +76,7 @@ const Authorization = (props) => {
 					<Form onSubmit={login}>
 						<section stye={{ margin: 'auto 10px' }}>
 						<Form.Group controlId="formBasicUsername">
-							<Form.Control type="text" placeholder="User name" required></Form.Control>
+							<Form.Control type="text" placeholder="User name" required autofocus="autofocus"></Form.Control>
 						</Form.Group>
 						<Form.Group controlId="formBasicPassword">
 							<Form.Control type="password" placeholder="Password" required />

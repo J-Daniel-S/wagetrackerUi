@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navbar, BackButton, LogoutButton } from '../styles/styledComponents';
+import { Navbar, BackButton, LogoutButton, HoverDiv } from '../styles/styledComponents';
 
 const navbar = (props) => {
 
@@ -10,9 +10,9 @@ const navbar = (props) => {
 				<div>
 					<BackButton onClick={() => props.goBack()} className="fa fa-chevron-left fa-2x" aria-hidden="true"></BackButton>
 				</div>
-				<div>
+				<HoverDiv>
 					<i onClick={() => props.toggleMenu()} className="fa fa-bars fa-2x" aria-hidden="true"></i>
-				</div>
+				</HoverDiv>
 				<div>
 					<LogoutButton onClick={() => props.toggleLogout()} className="fa fa-external-link-square fa-2x" aria-hidden="true"></LogoutButton>
 				</div>

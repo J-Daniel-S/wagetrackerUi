@@ -10,9 +10,10 @@ const Logout = (props) => {
 	const [ setLogout ] = useContext(ToggleContext);
 
 	const logout = () => {
+		props.justLogged();
 		localStorage.setItem("tokens", "");
 		setAuthTokens("");
-		window.location.reload();
+		window.location.assign("/");
 	}
 
 	return (

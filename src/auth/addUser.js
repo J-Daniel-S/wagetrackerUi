@@ -83,7 +83,7 @@ const AddUser = (props) => {
 					<Form onSubmit={signUp}>
 						<Form.Group controlId="formBasicUsername">
 							<Form.Label>User name:</Form.Label>
-							<Form.Control type="text" placeholder="" maxLength="21" required />
+							<Form.Control type="text" placeholder="" maxLength="21" required autofocus="autofocus" />
 						</Form.Group>
 						<Form.Group controlId="formBasicTax">
 							<Form.Label>Tax rate:</Form.Label>

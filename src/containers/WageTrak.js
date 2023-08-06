@@ -33,6 +33,7 @@ const Wagetracker = (props) => {
 	const [logout, setLogout] = useState(false);
 	const [navMenu, setNavMenu] = useState(false);
 	const [report, setReport] = useState(false);
+	const [justLogged, setJustLogged] = useState(false);
 
 	const contextArr = [userState, setUserState, jobState, setJobState, periodState, setPeriodState, viewPeriodState, setViewPeriodState,
 		shiftState, setShiftState, jobsState, setJobsState];
@@ -56,13 +57,17 @@ const Wagetracker = (props) => {
 				//this exists simply to force a re-render when jobs is changed
 				setJobsState(res.jobs);
 			}).catch(e => {
-				alert("Something went wrong attempting to contact the server.  Please try again later.  Logging you out.");
-				localStorage.setItem("tokens", "");
-				setAuthTokens("");
-				window.location.reload();
+				if (!justLogged) {
+					alert("Something went wrong attempting to contact the server.  Please try again later.  Logging you out.");
+					localStorage.setItem("tokens", "");
+					setAuthTokens("");
+					window.location.reload();
+				} else {
+
+				}
 			});
 		// setUserState(userState);
-	}, [authTokens, setUserState, setJobsState, props.userId, setAuthTokens])
+	}, [authTokens, setUserState, setJobsState, props.userId, setAuthTokens, justLogged])
 
 	useEffect(() => {
 		getUser();
@@ -116,13 +121,14 @@ const Wagetracker = (props) => {
 
 	const goBack = () => {
 		if (window.location.pathname !== "/wagetracker") {
-			props.history.push("/wagetracker");
-		}
-		if (window.location.pathname !== "/wagetracker") {
 			window.history.back();
 		} else if (window.location.pathname === "/wagetracker") {
 			toggleLogout();
 		}
+	}
+
+	const userJustLogged = () => {
+		setJustLogged(true);
 	}
 
 	//spinner
@@ -194,7 +200,7 @@ const Wagetracker = (props) => {
 							currentPeriod={viewPeriodState}
 						/>}
 					/>
-					{logout && !navMenu && !report && <Logout />}
+					{logout && !navMenu && !report && <Logout justLogged={() => userJustLogged()} />}
 					{navMenu && !logout && !report && <NavMenu getUser={() => getUser()} toggleMenu={() => toggleMenu()} toggleReport={() => toggleReport()} toggleLogout={() => toggleLogout()}/>}
 					{report && !navMenu && !logout && <ReportBug toggleReport={() => toggleReport()} />}
 				</UserContext.Provider>

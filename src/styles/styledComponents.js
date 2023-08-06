@@ -14,6 +14,9 @@ export const BlockButton = styled.section`
 	font-size: 1.7em;
 	min-height: 8vh;
 	padding: 0.5vh 0;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const FooterButton = styled.section`
@@ -52,6 +55,15 @@ export const FlexHeader = styled.header`
 export const IconButtonDiv = styled.div`
 	flex-grow: 0;
 	padding: 2vh 2vw;
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
+export const HoverDiv = styled.div`
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const LargeListArticle = styled.article`
@@ -147,6 +159,9 @@ export const Backdrop = styled.div`
 	position: fixed;
 	z-index: 49;
 	opacity: 0.1;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const AddBackdrop = styled.div`
@@ -302,6 +317,9 @@ export const RoundedButton = styled.div`
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: baseline;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const FlexDiv = styled.div`
@@ -312,6 +330,9 @@ export const FlexDiv = styled.div`
 
 export const Flex3 = styled.div`
 	flex-grow: 3;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const Flex0 = styled.div`
@@ -345,7 +366,9 @@ export const RoundedButtonCentered = styled.div`
 	width: 100vw;
 	display: flex;
 	justify-content: center;
-
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const CenterButtonText = styled.p`
@@ -360,6 +383,9 @@ export const ShadowButton = styled.span`
 	border-radius: 5px;
 	font-size: 1.1em;
 	background-color: #9fb1c6;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const ListSection = styled.section`
